@@ -23,18 +23,15 @@ def d_f(fun, symbol = 'x', times = 1):
 def newton_zero(fun,c_n,symbol='x'):
     c_n_1 = c_n
     if(sym.lambdify(symbol,fun)(c_n) <= 0.002):
-        print("DONE",c_n)
         return c_n
     else:
         c_n_1 = c_n - (sym.lambdify(symbol,fun)(c_n)/sym.lambdify(symbol,d_f(fun))(c_n))
-        print(c_n_1)
-        newton_zero(fun,c_n_1)
+        return newton_zero(fun,c_n_1)
 
 # Functions
 x = sym.symbols('x')
 fun = x**3 + x**2 - x - 2 
-k = newton_zero(fun, c_n=1.5)
-print(k)
+print("Final zero value = " ,newton_zero(fun, c_n=1.5))
 
 
 
