@@ -15,13 +15,14 @@ Newton method for finding zeros
 
 4. Guessing c_n-1 is the toughest part
 """
-import sympy as sym
+"""
+TODO : Finding 2 values which have opposite values , so that IMV proves that there is a real zero that exists
+"""
 
-def d_f(fun, symbol = 'x', times = 1):
-    return sym.diff(fun, symbol, times)
+
+from tools import *
 
 def newton_zero(fun,c_n,symbol='x'):
-    c_n_1 = c_n
     if(sym.lambdify(symbol,fun)(c_n) <= 0.002):
         return c_n
     else:
@@ -29,9 +30,9 @@ def newton_zero(fun,c_n,symbol='x'):
         return newton_zero(fun,c_n_1)
 
 # Functions
-x = sym.symbols('x')
-fun = x**3 + x**2 - x - 2 
-print("Final zero value = " ,newton_zero(fun, c_n=1.5))
+#x = sym.symbols('x')
+#fun = x**3 + x**2 - x - 2 
+#print("Final zero value = " ,newton_zero(fun, c_n=1.5))
 
 
 

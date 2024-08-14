@@ -5,7 +5,7 @@ Pollution in clear lake
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plotting():
+def plotting(x,y):
     plt.plot(x,y)
     plt.show()
 def tolerance():
@@ -32,4 +32,4 @@ t = plot_table(x,y, Tolerance)
 fine = t*f_p_y
 print("Fine : ", fine)
 # Plotting 
-plotting()
+plotting(x,y)
